@@ -32,7 +32,7 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            apt install python virtualenv
+            sudo apt install python virtualenv
             virtualenv venv
             . venv/bin/activate
             pip install --upgrade pip
