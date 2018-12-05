@@ -33,7 +33,7 @@ jobs:
           name: install dependencies
           command: |
             sudo apt-get update
-            sudo apt-get install python-virtualenv -y
+            sudo apt-get install python-virtualenv curl -y
             virtualenv venv
             . venv/bin/activate
             pip install -r requirements.txt
@@ -52,7 +52,8 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            python manage.py test
+            chmod +x ./app.py
+            ./app.py
 
       - store_artifacts:
           path: test-reports
