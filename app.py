@@ -47,7 +47,7 @@ def get_tasks():
 @auth.login_required
 def get_task(task_id):
 
-    task = list(filter(lambda t: t['id'] == task_id, tasks))
+    task = filter(lambda t: t['id'] == task_id, tasks)
     print(task)
     if len(task) == 0:
         abort(404)
@@ -78,8 +78,8 @@ def create_task():
 @app.route('/todo/api/v1.0/tasks/<int:task_id>', methods=['PUT'])
 @auth.login_required
 def update_task(task_id):
-    task = list(filter(lambda t: t['id'] == task_id, tasks))
-    if len(task) == 0:
+    task = filter(lambda t: t['id'] == task_id, tasks)
+    if len(task) == 0
         abort(404)
     if not request.json:
         abort(400)
@@ -97,7 +97,7 @@ def update_task(task_id):
 @app.route('/todo/api/v1.0/tasks/<int:task_id>', methods=['DELETE'])
 @auth.login_required
 def delete_task(task_id):
-    task = list(filter(lambda t: t['id'] == task_id, tasks))
+    task = filter(lambda t: t['id'] == task_id, tasks)
     if len(task) == 0:
         abort(404)
     tasks.remove(task[0])
