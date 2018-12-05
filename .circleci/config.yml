@@ -53,7 +53,7 @@ jobs:
           command: |
             . venv/bin/activate
             chmod +x ./app.py
-            ./app.py
+            ./app.py &
 
       - store_artifacts:
           path: test-reports
