@@ -79,7 +79,7 @@ def create_task():
 @auth.login_required
 def update_task(task_id):
     task = filter(lambda t: t['id'] == task_id, tasks)
-    if len(task) == 0
+    if len(task) == 0:
         abort(404)
     if not request.json:
         abort(400)
